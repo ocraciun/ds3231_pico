@@ -1,12 +1,20 @@
 #include "ds3231.h"
 
-// Convert bcd value to decimal value
+/**
+ * Convert bcd value to decimal value
+ * @param val BCD value
+ * @returns decimal representation of `val`
+ */
 static inline uint8_t bcd_decimal(uint8_t val)
 {
     return ((val & 0xF0) >> 4) * 10 + (val & 0x0F);
 }
 
-// Convert decimal value to bcd value
+/**
+ * Convert decimal value to bcd value
+ * @param val decimal value
+ * @returns BCD represantation of `val`
+ */
 static inline uint8_t decimal_bcd(uint8_t val)
 {
   return (val / 10 << 4) | (val % 10);
